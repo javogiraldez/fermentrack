@@ -308,14 +308,14 @@
 <h2 id="using-the-guided-workflow">Using the Guided Workflow</h2>
 <ol>
 <li>With the controller disconnected from the Raspberry Pi, launch guided setup and select "Add New Device (Guided)" from the "Select Device to Control" dropdown</li>
-<li>Select the correct board type from the dropdown and click "Submit"</li>
+<li>Select the correct board type from the dropdown and click "Enviar"</li>
 <li>If your device is already flashed, choose "Yes - Already Flashed". If it isn't, read <a href="Flashing%20a%20Controller.md">these instructions</a> before continuing. </li>
 <li>If setting up any device other than an ESP8266 click "Begin Serial Autodetection". If setting up an ESP8266, select "Serial" on the left, and then click "Begin Serial Autodetection"</li>
 <li>Ensure that the controller is not connected to the Raspberry Pi, and click "Scan Devices"</li>
 <li>Connect the controller to the Raspberry Pi</li>
 <li>Click "Scan for New Devices"</li>
 <li>Choose the device that corresponds to your Arduino and click "Set Up"</li>
-<li>Enter a name for the device, adjust settings as needed, and click "Submit"</li>
+<li>Enter a name for the device, adjust settings as needed, and click "Enviar"</li>
 </ol>
 <h2 id="about-serial-port-autodetection">About Serial Port Autodetection</h2>
 <p>By default, Linux assigns serial ports to devices like BrewPi controllers based on the order they are connected. If you have multiple devices connected to your Raspberry Pi this can mean that Fermentrack could potentially mistake one device for another. To prevent this, Fermentrack includes a feature which will disregard the specified serial port when connecting to the controller and will instead connect to the device with the USB serial number that matches the device you set up.</p>

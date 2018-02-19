@@ -17,7 +17,7 @@ Flashing a new controller is accomplished through the controller flashing interf
 
 1. Once in the flash workflow, click "Refresh Firmware List from Fermentrack.com". This downloads a list of availble, screened firmware from Fermentrack.com.
 
-1. After the list downloads, select your device family and click "Submit".
+1. After the list downloads, select your device family and click "Enviar".
 
 1. On the next screen, select the board (hardware variant) your device is based on. For some families, there may only be one option.
 

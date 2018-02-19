@@ -452,7 +452,7 @@ def login(request, next=None):
         if target_user:  # If the user authenticated, process login & redirect
             auth.login(request, target_user)
 
-            messages.success(request, "Logged in")
+            messages.success(request, "Ingreso correcto")
 
             if 'next' in request.POST:
                 if len(request.POST['next']) > 1:
@@ -462,10 +462,10 @@ def login(request, next=None):
 
         else:
             messages.error(request, "Login failed")
-            return render(request, template_name="site_login.html", context={'pagetitle': 'Log In', 'next': next})
+            return render(request, template_name="site_login.html", context={'pagetitle': 'Ingresar', 'next': next})
 
     # If we hit this, we just need to display the form (no valid form input received)
-    return render(request, template_name="site_login.html", context={'pagetitle': 'Log In', 'next': next})
+    return render(request, template_name="site_login.html", context={'pagetitle': 'Ingresar', 'next': next})
 
 
 def logout(request):

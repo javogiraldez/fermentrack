@@ -10,12 +10,12 @@
 
 
 {% block content %}
-<h1>Devices</h1>
+<h1>Dispositivos</h1>
 {% if not all_devices %}
-No fermentation devices configured yet. To get started, add a new device:
+Aún no hay fermentadores configurados, para empezar configure un dispositivo:
     <ul>
-        <li><a href="{% url 'device_guided_select_device' %}">Add new device (guided)</a></li>
-        <li><a href="{% url 'device_add' %}">Add new device (advanced)</a></li>
+        <li><a href="{% url 'device_guided_select_device' %}">Agregar nuevo dipositivo (guiado)</a></li>
+        <li><a href="{% url 'device_add' %}">Agregar nuevo dispositivo (avanzado)</a></li>
     </ul>
 {% else %}
     <!-- Start vue LCD container -->

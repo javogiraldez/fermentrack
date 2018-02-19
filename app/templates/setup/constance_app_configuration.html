@@ -4,8 +4,8 @@
 
 {% if not completed_config %}
     {# User is in the guided setup workflow #}
-    <p>Here you can change some settings - default values are filled in for you.</p>
-    <p>You can change these settings at any time by going to the "Site Settings" page.</p>
+    <p>Aquí podrás cambiar algunas configuraciones - los valores por defecto ya están completos.</p>
+    <p>Puedes cambiar estas configuraciones en cualquier momento en la página "Configuraciones".</p>
 {% else %}
     {# User is not in the guided setup workflow #}
 {% endif %}
@@ -13,7 +13,7 @@
 
 <form action="{% if not completed_config %}{% url "setup_config" %}{% else %}{% url "site_settings" %}{% endif %}" class="form-horizontal" method="post">{% csrf_token %}
     <div id="constanceSection">
-        <h3 class="form-header">App Configuration</h3>
+        <h3 class="form-header">Configuración de la App</h3>
 
         {# Converting to use form_generic to make things a little better looking #}
         {% form_generic form.brewery_name %}
@@ -22,6 +22,6 @@
         {% form_generic form.temperature_format %}
         {% form_generic form.preferred_timezone %}
         {% form_generic form.enable_gravity_support %}
-        <input type="submit" value="Save Configuration" class="btn btn-primary"/>
+        <input type="submit" value="Guardar Configuración" class="btn btn-primary"/>
     </div>
 </form>

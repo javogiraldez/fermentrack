@@ -38,8 +38,8 @@ def setup_add_user(request):
     # We might want to create CRUD for users later, but it shouldn't be part of the guided setup. If a user has
     # already been created, redirect back to siteroot.
     if num_users > 0:
-        messages.error(request, 'Cannot use guided setup to create multiple users - use the <a href="/admin/">admin ' +
-                                'portal</a> instead.')
+        messages.error(request, 'No se puede utilizar la configuración guiada para crear varios usuarios - usa <a href="/admin/">admin ' +
+                                'portal</a>.')
         return redirect('siteroot')
 
     if request.POST:
@@ -52,7 +52,7 @@ def setup_add_user(request):
             #new_user_creaed = User.objects.create_user(**form.cleaned_data)
             # We login the user right away
             login(request, new_user)
-            messages.success(request, 'User {} created and logged in successfully'.format(new_user.username))
+            messages.success(request, 'Usuario {} Se creó e ingresó correctamente'.format(new_user.username))
             if config.USER_HAS_COMPLETED_CONFIGURATION:
                 return redirect('siteroot')
             else:
@@ -245,7 +245,7 @@ def device_guided_add_mdns(request, mdns_id):
 
             new_device.save()
 
-            messages.success(request, u'Device {} Added. Please wait a few seconds for controller to start'.format(new_device))
+            messages.success(request, u'Dispositivo {} Agregado. Espere unos segundos para comenzar'.format(new_device))
             return redirect("/")
 
         else:
@@ -321,7 +321,7 @@ def device_guided_serial_autodetect(request, device_family):
                     if new_device.connection_type == BrewPiDevice.CONNECTION_SERIAL:
                         new_device.set_udev_from_port()
 
-                    messages.success(request, u'Device {} Added. Please wait a few seconds for controller to start'.format(new_device))
+                    messages.success(request, u'Dispositivo {} Agregado. Espere unos segundos para comenzar'.format(new_device))
                     return redirect("/")
 
                 else:
@@ -337,7 +337,7 @@ def device_guided_serial_autodetect(request, device_family):
                     board_type = 'uno'
                 else:
                     # Invalid board type - shouldn't ever get here.
-                    messages.error(request, "Invalid board type for serial autodetection")
+                    messages.error(request, "Tipo de placa inválida para la autodetección via serial")
                     return redirect("/")
 
                 initial_values = {'board_type': board_type, 'serial_port': request.POST['device'], 'connection_type': 'serial',

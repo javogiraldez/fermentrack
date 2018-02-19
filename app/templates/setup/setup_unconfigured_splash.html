@@ -18,8 +18,8 @@
 {% else %}
     {# Otherwise, we're just displaying this page for the hell of it. Present both options #}
     <p>Parece que es la primera vez que ejecutas Fermentrack. Necesitamos configurar algunas cosas antes de comenzar.</p>
-    <a href="{% url 'setup_add_user' %}" class="btn btn-large btn-primary">Agregar Usuario de Trabajo</a>
-    <a href="{% url 'setup_config' %}" class="btn btn-large btn-primary">Configurar Sitio de Trabajo</a>
+    <a href="{% url 'setup_add_user' %}" class="btn btn-large btn-primary">Agregar Usuario al Flujo de Trabajo</a>
+    <a href="{% url 'setup_config' %}" class="btn btn-large btn-primary">Configurar Sitio del Flujo de Trabajo</a>
 
 {% endif %}
 

@@ -1,21 +1,20 @@
 {% extends "sitewide/flat_ui_template.html" %}
 {% load custom_tags %}
 
-{% block title %}Initial Setup{% endblock %}
+{% block title %}Configuración inicial{% endblock %}
 
 {% block content %}
 
-<h1 class="page-header">Installation Wizard</h1>
+<h1 class="page-header">Instalación asistida</h1>
 
-First we need to create a user, this user will be the superuser and have full access to all the different
-parts of the system (you will be automaticlly logged in after user is created).
+Primero necesitas crear un usuario, este ususario será un superuser y tendrá acceso a todo el sistema (accederás automáticamente una vez se cree el usuario).
 
 <form method="post" action="">
     {% csrf_token %}
     <table>
     {{ form.as_table }}
     </table>
-    <input type="submit" value="Create new user account" class="btn btn-large btn-primary btn-lg" />
+    <input type="submit" value="Crear nueva cuenta de usuario" class="btn btn-large btn-primary btn-lg" />
 </form>
 {% endblock %}
 

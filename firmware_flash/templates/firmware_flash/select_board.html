@@ -13,7 +13,7 @@
 <div id="form_container">
     <form action="{% url "firmware_select_board" flash_family.id %}" class="form-horizontal" method="post">{% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Submit" class="btn btn-primary" />
+        <input type="submit" value="Enviar" class="btn btn-primary" />
     </form>
 </div>
 

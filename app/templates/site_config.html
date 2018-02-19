@@ -8,12 +8,12 @@
 
 {% block content %}
 
-<h1 class="page-header">App Configuration</h1>
+<h1 class="page-header">Configuración de la App</h1>
 
 
-        <h3 class="form-header">Configuration Tools</h3>
-        <a href="/admin/" class="btn btn-large btn-lg btn-primary">Django Admin Panel</a>
-        <a href="{% url 'github_trigger_upgrade' %}" class="btn btn-large btn-lg btn-primary">Update from GitHub</a>
+        <h3 class="form-header">Herramientas de configuración</h3>
+        <a href="/admin/" class="btn btn-large btn-lg btn-primary">Panel de Admin Django</a>
+        <a href="{% url 'github_trigger_upgrade' %}" class="btn btn-large btn-lg btn-primary">Actualizar desde GitHub</a>
 
 {# Setting this as an include so we can reuse it on our site settings page #}
 {% include 'setup/constance_app_configuration.html' %}

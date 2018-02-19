@@ -12,14 +12,14 @@ When setting up a controller to connect via serial, the selected "port" is incre
 ## Using the Guided Workflow
 
 1. With the controller disconnected from the Raspberry Pi, launch guided setup and select "Add New Device (Guided)" from the "Select Device to Control" dropdown
-2. Select the correct board type from the dropdown and click "Submit"
+2. Select the correct board type from the dropdown and click "Enviar"
 3. If your device is already flashed, choose "Yes - Already Flashed". If it isn't, read [these instructions](Flashing%20a%20Controller.md) before continuing. 
 4. If setting up any device other than an ESP8266 click "Begin Serial Autodetection". If setting up an ESP8266, select "Serial" on the left, and then click "Begin Serial Autodetection"
 5. Ensure that the controller is not connected to the Raspberry Pi, and click "Scan Devices"
 6. Connect the controller to the Raspberry Pi
 7. Click "Scan for New Devices"
 8. Choose the device that corresponds to your Arduino and click "Set Up"
-9. Enter a name for the device, adjust settings as needed, and click "Submit"
+9. Enter a name for the device, adjust settings as needed, and click "Enviar"
 
 
 ## About Serial Port Autodetection

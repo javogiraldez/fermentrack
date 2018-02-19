@@ -40,15 +40,15 @@
 {% block content %}
 
     <form action="{% url "login" %}" method="post" class="form-signin">
-    <legend>Log In</legend>
+    <legend>Ingresar</legend>
         <fieldset>
-            <input type="text" class="input-block-level" name="username" placeholder="Username"/><br />
+            <input type="text" class="input-block-level" name="username" placeholder="Usuario"/><br />
             <input type="password" class="input-block-level" name="password" placeholder="Password"/><br />
             <input type="hidden" name="posted" value="posted" />{% csrf_token %}{% if next %}
             <input type="hidden" name="next" value="{{ next }}" />{% endif %}
-            <button type="submit" class="btn btn-large btn-primary"/>Log In</button><br />
+            <button type="submit" class="btn btn-large btn-primary"/>Ingresar</button><br />
             <span class="help-block"><br>
-                <p>Please reach out to a site admin for credentials.</p></span>
+                <p>Por favor, comuníquese con el administrador del sitio para obtener credenciales.</p></span>
         </fieldset>
     </form>
 

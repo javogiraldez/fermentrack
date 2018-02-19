@@ -17,7 +17,7 @@ class GuidedSetupUserForm(forms.ModelForm):
     password and upon save validates that the passwords match.
     """
     password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
-    password2 = forms.CharField(label="Password (again)", widget=forms.PasswordInput)
+    password2 = forms.CharField(label="Password (repetir)", widget=forms.PasswordInput)
 
     class Meta:
         model = User
@@ -45,12 +45,12 @@ class GuidedSetupConfigForm(forms.Form):
     date_time_display_select_choices = settings.CONSTANCE_ADDITIONAL_FIELDS['date_time_display_select'][1]['choices']
     temperature_format_select_choices = settings.CONSTANCE_ADDITIONAL_FIELDS['temperature_format_select'][1]['choices']
     login_true_false = [
-        (True, 'Yes - Require Login'),
-        (False, 'No - Can be seen without logging in')
+        (True, 'Si - Requiere ingresar'),
+        (False, 'No - Puede ser visto sin igresar')
     ]
 
     true_false =[
-        (True, 'Yes'),
+        (True, 'Si'),
         (False, 'No')
     ]
 
@@ -109,12 +109,12 @@ class GuidedSetupConfigForm(forms.Form):
 class GuidedDeviceSelectForm(forms.Form):
     DEVICE_FAMILY_CHOICES = (
         ('ESP8266', 'ESP8266'),
-        ('Arduino', 'Arduino Uno (and compatible)'),  # TODO - Add Leonardo support
+        ('Arduino', 'Arduino Uno (y compatibles)'),  # TODO - Add Leonardo support
         ('Spark', 'Spark Core'),
         ('Fuscus', 'Native Python (Fuscus)'),
     )
 
-    device_family = forms.ChoiceField(label="Device Family",
+    device_family = forms.ChoiceField(label="Tipo de Dispositivo",
                                       widget=forms.Select(attrs={'class': 'form-control',
                                                                  'data-toggle': 'select'}),
                                       choices=DEVICE_FAMILY_CHOICES, required=True)
@@ -123,7 +123,7 @@ class GuidedDeviceSelectForm(forms.Form):
 class GuidedDeviceFlashForm(forms.Form):
     DEVICE_FAMILY_CHOICES = GuidedDeviceSelectForm.DEVICE_FAMILY_CHOICES
 
-    device_family = forms.ChoiceField(label="Device Family",
+    device_family = forms.ChoiceField(label="Tipo de Dispositivo",
                                       widget=forms.Select(attrs={'class': 'form-control',
                                                                  'data-toggle': 'select'}),
                                       choices=DEVICE_FAMILY_CHOICES, required=True)
