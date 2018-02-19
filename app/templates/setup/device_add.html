@@ -5,21 +5,21 @@
 
 {% block content %}
 
-<h1 class="page-header">Add Device</h1>
+<h1 class="page-header">Agregar Dispositivo</h1>
 
     <p>
-        Note - This form only works for devices that have already been flashed with the appropriate firmware. If you
-    need to flash your controller, please click here:
+        Nota - Este formulario sólo funciona con dispositivos que fueron flasheados son el firmware adecuado. 
+		Si necesitas flashear tu dispositivo, utiliza l siguiente botón:
     </p>
 
     <p>
-        <a href="{% url 'firmware_flash_select_family' %}" class="btn btn-large btn-primary">Begin Guided Firmware Flash</a>
+        <a href="{% url 'firmware_flash_select_family' %}" class="btn btn-large btn-primary">Comenzar el flasheo de firmware (guiado)</a>
     </p>
 
 <form action="{% url "device_add" %}" class="form-horizontal" method="post">{% csrf_token %}
 
     <div id="deviceConstantsSection">
-        <h4 class="form-header">Device Constants</h4>
+        <h4 class="form-header">Constantes del Dispositivo</h4>
         {% form_generic form.device_name %}
         {% form_generic form.temp_format %}
         {% form_generic form.data_point_log_interval %}
@@ -28,7 +28,7 @@
 
 
     <div id="inetSocketSection">
-        <h4 class="form-header">Connect Interface to Script</h4>
+        <h4 class="form-header">Conexión de la Interface con los Scripts</h4>
         {% form_generic form.useInetSocket %}
 
         <div id="localSocketHidden" style="display: none">{# Although I don't recommend local sockets, some people might want them #}
@@ -43,7 +43,7 @@
 
 
     <div id="connectivitySection">
-        <h4 class="form-header">Connect Script to Device</h4>
+        <h4 class="form-header">Conexión de los Scripts con el Dispositivo</h4>
         {% form_generic form.connection_type %}
         <div id="serialSocketSection" style="display: none"> {# The javascript below will show the relevant section (serial or wifi) #}
                 {% form_generic form.serial_port %}

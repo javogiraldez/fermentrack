@@ -32,7 +32,7 @@
                             <p>Perfecto.</p>
 
                             {% if device_family == "ESP8266" %}
-                                <p>Nates de continuar con el siguiente paso, es necesario tener el dispositivo de una forma
+                                <p>Antes de continuar con el siguiente paso, es necesario tener el dispositivo de una forma
                                 conectada. Si estás usando <b>WiFi</b> finaliza la configuración de disositivo y conéctalo
                                 a tu red. Si estás usando <b>Serial</b> no hagas nada. Te avisaremos que conectes el 
                                 controlador al dispositivo más tarde.</p>
@@ -41,19 +41,18 @@
                                 <button type="submit" class="btn btn-large btn-primary">Continuar</button>
                             {% elif device_family == "Arduino" %}
                                 <p>
-                                    Since all Arduino-based controllers connect via Serial, we'll skip ahead and take you
-                                    straight to the Serial autodetection process.
+                                    Como todos los controladores basados en Arduino se conectan a través del Serial, 
+									pasaremos directamente al proceso de autodetección.
                                 <p>
-                                    Before you begin, please disconnect your controller from this computer if it's
-                                    currently connected.
+                                    Antes de empezar, por favr desconcta el dispositivo de este ordenador (si es que está conectado)
                                 </p>
 
-                                <a href="{% url 'device_guided_serial_autodetect' device_family %}" class="btn btn-large btn-primary">Begin Serial Autodetection</a>
+                                <a href="{% url 'device_guided_serial_autodetect' device_family %}" class="btn btn-large btn-primary">Comenzar la Autodetección por Serial</a>
 
                             {% else %}
-                                Unfortunately, this version of Fermentrack isn't quite smart enough to support that
-                                device family yet. Pay attention to the discussions on HomeBrewTalk - Support for
-                                {{ device_family }} is coming soon. (either v2 or v3)
+                                Desafortunadamente esta versión de Fermentrack aún no soporta esa <i>familia</i> del dispositivo.
+                                Presta atención al hilo de HomeBrewTalk - El soporte para
+                                {{ device_family }} estará disponible proximamente. (incluso v2 o v3)
                             {% endif %}
                         </form>
                     </div>{# Yes - Already Flashed Pane #}
@@ -61,28 +60,29 @@
                     {# No - Need to Flash Pane #}
                     <div role="pillpanel" class="col-md-8 tab-pane" id="noPill">
                         {% if device_family == "ESP8266" or device_family == "Arduino" %}
-                            <p>No worries. Fermentrack can help with that. To launch the guided firmware "flash"
-                                procedure, click the button below:
+                            <p>No te preocupes, Fermentrack puede ayudarte con eso. Para ejecutar la guia del procedimiento de flasheo, 
+								presiona el siguiente botón:
                             </p>
 
-                            <p><a href="{% url 'firmware_flash_select_family' %}" class="btn btn-large btn-primary">Begin Guided Firmware Flash</a></p>
+                            <p><a href="{% url 'firmware_flash_select_family' %}" class="btn btn-large btn-primary">Comenzar con el flasheo del firmware</a></p>
 
                             <p>
-                                Alternatively, you can manually flash the device without using Fermentrack.
+                                Alternativamente también pudes flashear el dispositivo manualmente sin usar Fermentrack.
                             {% if device_family == "ESP8266" %}
-                                For ESP8266-based devices, those instructions can be found
+                                Para dispositivos basados en ESP8266, puedes encontrar las instrucciones aquí:
                                 <a href="https://github.com/thorrak/brewpi-esp8266/blob/master/docs/Installing%20the%20Firmware.md">here.</a>
                             {% else %}
-                                {# I don't have a good link for manual flashing instructions for Arduino, unfortunately #}
+                                {# Desafortunadamente no tenemos ningún buen manual para el flasheo de dispositivos Arduino #}
                             {% endif %}
-                                Whichever method you choose, once the device is flashed come back here to continue setup.
+                                Cualquier método elegido, una vez que el dispositivo está flasheado vuelve a este punto y 
+								continua con la configuración.
                             </p>
 
 
                         {% else %}
                             <p>
-                                Unfortunately, Fermentrack doesn't yet support flashing any devices within this device
-                                family. Keep an eye on GitHub or the dicussions at HomeBrewTalk for updates.
+                                Desafortunadamente, Fermentrack aún no soporta flashear ningún dispositivo de esta familia.
+								Presta atención a las novedades en GitHub o el hilo de HomebewTalk para saber cuando estará disponible.
                             </p>
                         {% endif %}
 

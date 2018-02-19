@@ -23,27 +23,27 @@
                     <div role="pillpanel" class="col-md-8 tab-pane active" id="selectPill">
                         <h4>¿Cómo está conectado?</h4>
                         <p>
-                            Now that the device is flashed, we need to get it set up to connect to it. If you are using
-                            <b>WiFi</b> finish the controller setup and connect it to your network. If you are using
-                            <b>Serial</b> connect the controller to the Raspberry Pi device.
+                            Ahora que el dispositivo está flasheado, necesitamos configurarlo para conectarnos a él. Si estás usando 
+                            <b>WiFi</b> finaliza la configuración y conéctalo a tu red. Si estás usando
+                            <b>Serial</b> conecta el dispositivo a la RPi.
                         </p>
-                        <p>Once everything is connected, select the connection method on the left.</p>
+                        <p>Una vez está todo conectado, selecciona en el lado izquierdo el metodo de conexión.</p>
                     </div>{# Select (Default) Pane #}
 
                     {# WiFi Connection Pane #}
                     <div role="pillpanel" class="col-md-8 tab-pane" id="wifiPill">
                         {% if device_family == "ESP8266" %} {# Only ESP8266 devices are supported for WiFi #}
-                            <p>Awesome. ESP8266 + WiFi = Fantastic.</p>
+                            <p>Genial. ESP8266 + WiFi = Fantástico.</p>
 
                             <p>
-                                Clicking the button below will scan your network for ESP8266-based BrewPi devices,
-                                giving you an option to connect any that aren't already set up.
+                                Clikenado en el siguiente botón escanaeremos la red en busca de un dispositivo ESP8266 BrewPi,
+                                dándote la opción de conectarte a cualquier dispositivo que aún no haya sido configurado.
                             </p>
 
-                            <a href="{% url 'device_guided_mdns' %}" class="btn btn-large btn-primary">Scan WiFi via mDNS</a>
+                            <a href="{% url 'device_guided_mdns' %}" class="btn btn-large btn-primary">Escanear WiFi via mDNS</a>
                         {% else %}
-                            Unfortunately, WiFi isn't supported on the {{ device_family }} family of devices. Please
-                            attempt to connect via "Serial" on the left.
+                            Desafortunadamente, el WiFi no está soportado en la <i>familia</i> {{ device_family }}. Por favor
+							inténtalo conectandolo via "Serial" en la izquierda.
                         {% endif %}
                     </div>{# WiFi Connection Pane #}
 
@@ -51,24 +51,23 @@
                     <div role="pillpanel" class="col-md-8 tab-pane" id="serialPill">
                         <form action="{% url "device_guided_flash_prompt" device_family %}" method="post" >{% csrf_token %}
                             {% if device_family == "ESP8266" or device_family == "Arduino" %}
-                                <p>Wonderful. It's hard to misplace a controller when you're connected via a USB cable.</p>
+                                <p>Maravilloso. Es dificil perder un dispositivo cuando lo tienes conectado con un cable USB.</p>
 
                                 <p>
-                                    Clicking the button below will take you to the Serial autodetection process, where
-                                    you will be prompted to determine the device name of your controller. Before you begin,
-                                    please disconnect your controller from this computer if it's currently connected.
+                                    Clickeando el siguiente botón comenzará el proceso de autodeteción via "Serial", donde
+									podrás determinar el nombre de tu dispositivo. Antes de comenzar, desconecta el dispositivo
+									de la Rpi (si es que está conectado).
                                 </p>
 
-                                <a href="{% url 'device_guided_serial_autodetect' device_family %}" class="btn btn-large btn-primary">Begin Serial Autodetection</a>
-{#                                <a href="{% url 'device_add' %}" class="btn btn-large btn-primary">Add Device via Advanced Setup</a>#}
+                                <a href="{% url 'device_guided_serial_autodetect' device_family %}" class="btn btn-large btn-primary">Comenzar la Autodetección via Serial</a>
+{#                                <a href="{% url 'device_add' %}" class="btn btn-large btn-primary">Agregar dispositivo via Configuración Avanzada</a>#}
                             {% else %}
-                                <p>Unfortunately, Fermentrack doesn't (officially) support {{ device_family }}-based devices via
-                                serial just yet. We're working on it, and hope to add support in v2 or v3. Sit tight,
-                                and keep an eye on the discussion on HomeBrewTalk.</p>
+                                <p>Desafortunadamente, Fermentrack de momento no soporta (oficialmente) dispositivos basados en 
+								{{ device_family }} via serial. Estamos trabajando para lograrlo, y esperamos agregar soporte para v2 or v3. 
+								Mantente atento al hilo de HomeBrewTalk.</p>
 
-                                <p>If you're feeling adventurous, you can always try installing it manually via the
-                                <a href="{% url 'device_add' %}">Advanced Setup</a> workflow. If it ends up working please
-                                let us know!</p>
+                                <p>Si eres capaz y quieres intentarlo, siempre puedes tratar de instalarlo manualmente via la
+                                <a href="{% url 'device_add' %}">Configuración Avanzada</a>. Si logras que funcione, ¡por favor haznoslo saber!</p>
                             {% endif %}
                         </form>
                     </div>{# Serial Pane #}

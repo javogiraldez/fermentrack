@@ -5,10 +5,10 @@
                   <span class="dropdown-arrow"></span>
                   <ul class="dropdown-menu">
                     <li><a href="{% url 'device_dashboard' active_device.id %}">Dashboard</a></li>
-                    <li><a href="{% url 'device_control_constants' active_device.id %}">Configure Control Constants</a></li>
-                    <li><a href="{% url 'sensor_list' active_device.id %}">Configure Sensors/Pins/Devices</a></li>
+                    <li><a href="{% url 'device_control_constants' active_device.id %}">Configuración de Control</a></li>
+                    <li><a href="{% url 'sensor_list' active_device.id %}">Configuración Sensores/Pines/Dispositivos</a></li>
                     <li class="divider"></li>
-                    <li><a href="{% url 'device_manage' active_device.id %}">Manage Device/View Logs</a></li>
+                    <li><a href="{% url 'device_manage' active_device.id %}">Administrar Dispositivos/Ver Logs</a></li>
                   </ul>
                 </li>
                 {% elif active_device.is_gravity_sensor %}
@@ -17,11 +17,11 @@
                   <ul class="dropdown-menu">
                     <li><a href="{% url 'gravity_dashboard' active_device.id %}">Dashboard</a></li>
                       {% if not active_device.assigned_brewpi_device %}
-                    <li><a href="{% url 'gravity_attach' active_device.id %}">Attach to Temp Controller</a></li>
+                    <li><a href="{% url 'gravity_attach' active_device.id %}">Adjuntar a Controlador de Temp.</a></li>
                           {% endif %}
-{#                    <li><a href="{% url 'sensor_list' active_device.id %}">Configure Sensors/Pins/Devices</a></li>#}
+{#                    <li><a href="{% url 'sensor_list' active_device.id %}">Configurar Sensores/Pines/Disositivos</a></li>#}
                     <li class="divider"></li>
-                    <li><a href="{% url 'gravity_manage' active_device.id %}">Manage Sensor{# /View Logs #}</a></li>
+                    <li><a href="{% url 'gravity_manage' active_device.id %}">Administrar Sensor{# /Ver Logs #}</a></li>
                   </ul>
                 </li>
                 {% endif %}
@@ -29,9 +29,9 @@
 
                 <li class="dropdown">
 {% if active_device %}
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Switch Device <b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cambiar Dispositivo <b class="caret"></b></a>
 {% else %}
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select Device to Control <b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seleccionar Dispositivo <b class="caret"></b></a>
 {% endif %}
                   <span class="dropdown-arrow"></span>
                   <ul class="dropdown-menu">
@@ -48,20 +48,20 @@
 
                   {% if config.TEMP_CONTROL_SUPPORT_ENABLED %}
                     <li class="divider"></li>
-                    <li><a href="{% url 'device_guided_select_device' %}"><i class="fa fa-fw fa-plus"></i> Add New Temp Controller (Guided)</a></li>
-                    <li><a href="{% url 'device_add' %}"><i class="fa fa-fw fa-plus"></i> Add Temp Controller (Advanced)</a></li>
+                    <li><a href="{% url 'device_guided_select_device' %}"><i class="fa fa-fw fa-plus"></i> Agregar Controlador de Temp. (Guiado)</a></li>
+                    <li><a href="{% url 'device_add' %}"><i class="fa fa-fw fa-plus"></i> Agregar Controlador de Temp. (Avanzado)</a></li>
                   {% endif %}
 
                   {% if config.GRAVITY_SUPPORT_ENABLED %}
                     <li class="divider"></li>
-                    <li><a href="{% url 'gravity_add_board' %}"><i class="fa fa-fw fa-plus"></i> Add Gravity Sensor</a></li>
+                    <li><a href="{% url 'gravity_add_board' %}"><i class="fa fa-fw fa-plus"></i> Agregar Sensor de Gravedad</a></li>
                   {% endif %}
 
                     <li class="divider"></li>
                   {# Flash Device can be used to flash anything. It's always accessable #}
-                    <li><a href="{% url 'firmware_flash_select_family' %}"><i class="fa fa-fw fa-microchip"></i> Flash Device</a></li>
+                    <li><a href="{% url 'firmware_flash_select_family' %}"><i class="fa fa-fw fa-microchip"></i> Flashear Dispositivo</a></li>
                   </ul>
                 </li>
 {% if config.TEMP_CONTROL_SUPPORT_ENABLED %}
-                <li><a href="{% url 'profile_list' %}">Ferm Profiles</a></li>
+                <li><a href="{% url 'profile_list' %}">Perfiles de Fermentación</a></li>
 {% endif %}

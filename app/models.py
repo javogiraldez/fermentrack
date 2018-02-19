@@ -382,14 +382,14 @@ class BrewPiDevice(models.Model):
         (DATA_LOGGING_STOPPED, 'Stopped')
     )
     DATA_POINT_TIME_CHOICES = (
-        (10, '10 Seconds'),
-        (30, '30 Seconds'),
-        (60, '1 Minute'),
-        (60*2, '2 Minutes'),
-        (60*5, '5 Minutes'),
-        (60*10, '10 Minutes'),
-        (60*30, '30 Minutes'),
-        (60*60, '1 Hour'),
+        (10, '10 Segundos'),
+        (30, '30 Segundos'),
+        (60, '1 Minuto'),
+        (60*2, '2 Minutos'),
+        (60*5, '5 Minutos'),
+        (60*10, '10 Minutos'),
+        (60*30, '30 Minutos'),
+        (60*60, '1 Hora'),
     )
     BOARD_TYPE_CHOICES = (
         ('uno', 'Arduino Uno (or compatible)'),
