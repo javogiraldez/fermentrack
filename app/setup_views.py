@@ -54,7 +54,7 @@ def setup_add_user(request):
             #new_user_creaed = User.objects.create_user(**form.cleaned_data)
             # We login the user right away
             login(request, new_user)
-            messages.success(request, 'Usuario {} Se creó e ingresó correctamente'.format(new_user.username))
+            messages.success(request, 'Usuario {} se creó e ingresó correctamente'.format(new_user.username))
             if config.USER_HAS_COMPLETED_CONFIGURATION:
                 return redirect('siteroot')
             else:
