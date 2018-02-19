@@ -38,7 +38,7 @@ def setup_add_user(request):
     # We might want to create CRUD for users later, but it shouldn't be part of the guided setup. If a user has
     # already been created, redirect back to siteroot.
     if num_users > 0:
-        messages.error(request, 'No se puede utilizar la configuración guiada para crear varios usuarios - usa <a href="/admin/">admin ' +
+        messages.error(request, 'No se puede utilizar la configuracion guiada para crear varios usuarios - usa <a href="/admin/">admin ' +
                                 'portal</a>.')
         return redirect('siteroot')
 
@@ -52,7 +52,7 @@ def setup_add_user(request):
             #new_user_creaed = User.objects.create_user(**form.cleaned_data)
             # We login the user right away
             login(request, new_user)
-            messages.success(request, 'Usuario {} Se creó e ingresó correctamente'.format(new_user.username))
+            messages.success(request, 'Usuario {} Se creo e ingreso correctamente'.format(new_user.username))
             if config.USER_HAS_COMPLETED_CONFIGURATION:
                 return redirect('siteroot')
             else:
@@ -337,7 +337,7 @@ def device_guided_serial_autodetect(request, device_family):
                     board_type = 'uno'
                 else:
                     # Invalid board type - shouldn't ever get here.
-                    messages.error(request, "Tipo de placa inválida para la autodetección via serial")
+                    messages.error(request, "Tipo de placa invalida para la autodeteccion via serial")
                     return redirect("/")
 
                 initial_values = {'board_type': board_type, 'serial_port': request.POST['device'], 'connection_type': 'serial',
