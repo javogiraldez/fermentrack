@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Django settings for fermentrack_django project.
 
@@ -170,10 +172,10 @@ CONSTANCE_ADDITIONAL_FIELDS = {
 # CONSTANCE_SUPERUSER_ONLY = False
 CONSTANCE_CONFIG = {
     'BREWERY_NAME': ('Fermentrack', 'Name to be displayed in the upper left of each page', str),
-    'DATE_TIME_FORMAT_DISPLAY': ('mm/dd/yy', 'How dates will be displayed in the dashboard',
+    'DATE_TIME_FORMAT_DISPLAY': ('dd/mm/yy', 'How dates will be displayed in the dashboard',
                                  'date_time_display_select'),
     'REQUIRE_LOGIN_FOR_DASHBOARD': (False, 'Should a logged-out user be able to see device status?', bool),
-    'TEMPERATURE_FORMAT': ('F', 'Preferred temperature format (can be overridden per device)',
+    'TEMPERATURE_FORMAT': ('C', 'Preferred temperature format (can be overridden per device)',
                            'temperature_format_select'),
     'USER_HAS_COMPLETED_CONFIGURATION': (False, 'Has the user completed the configuration workflow?', bool),
     'TEMP_CONTROL_SUPPORT_ENABLED': (True, 'Has the user enabled support for temp tracking/control (eg BrewPi)?', bool),
